@@ -1,0 +1,20 @@
+<map id="meta&#45;facebook/at&#45;mc/src/platform/plat_init.c" name="meta&#45;facebook/at&#45;mc/src/platform/plat_init.c">
+<area shape="rect" id="node1" title=" " alt="" coords="271,5,426,47"/>
+<area shape="rect" id="node2" href="$hal__gpio_8h.html" title=" " alt="" coords="71,169,151,196"/>
+<area shape="rect" id="node5" href="$hal__peci_8h.html" title=" " alt="" coords="189,95,269,121"/>
+<area shape="rect" id="node6" href="$power__status_8h.html" title=" " alt="" coords="293,95,404,121"/>
+<area shape="rect" id="node9" href="$util__sys_8h.html" title=" " alt="" coords="428,95,504,121"/>
+<area shape="rect" id="node11" href="$at-mc_2src_2platform_2plat__gpio_8h.html" title=" " alt="" coords="29,95,113,121"/>
+<area shape="rect" id="node12" href="$at-mc_2src_2platform_2plat__mctp_8h.html" title=" " alt="" coords="528,95,617,121"/>
+<area shape="rect" id="node17" href="$at-mc_2src_2platform_2plat__i2c__target_8h.html" title=" " alt="" coords="642,95,759,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="122,244,221,271"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,244,97,271"/>
+<area shape="rect" id="node7" title=" " alt="" coords="323,169,398,196"/>
+<area shape="rect" id="node8" title=" " alt="" coords="235,169,299,196"/>
+<area shape="rect" id="node10" title=" " alt="" coords="423,169,515,196"/>
+<area shape="rect" id="node13" href="$at-mc_2src_2platform_2plat__i2c_8h.html" title=" " alt="" coords="539,169,617,196"/>
+<area shape="rect" id="node14" href="$hal__i2c_8h.html" title=" " alt="" coords="564,244,637,271"/>
+<area shape="rect" id="node15" title=" " alt="" coords="685,319,777,345"/>
+<area shape="rect" id="node16" title=" " alt="" coords="503,319,661,345"/>
+<area shape="rect" id="node18" href="$hal__i2c__target_8h.html" title=" " alt="" coords="641,169,755,196"/>
+</map>
