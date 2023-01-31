@@ -143,23 +143,32 @@ uint8_t ltc4286_read(uint8_t sensor_num, int *reading)
 		}
 	}
 
-	// Multiplied by r_sense value if it needs
-	float M = ltc4286_mbr_table[index].M;
-	if (ltc4286_mbr_table[index].is_multiplied_by_rsense) {
-		M *= rsense;
+	if(index == 0xff) {
+
+	    LOG_ERR("Index in ltc4286_mbr_table is %hhu, out of range", index);
+	    return SENSOR_UNSPECIFIED_ERROR;
+
+	} else {
+
+	    // Multiplied by r_sense value if it needs
+	    float M = ltc4286_mbr_table[index].M;
+	    if (ltc4286_mbr_table[index].is_multiplied_by_rsense) {
+		    M *= rsense;
+	    }
+
+	    // real value = (1 / M) * raw_value * R - B;
+	    val = (1 / M) * ((msg.data[1] << 8) | msg.data[0]) * ltc4286_mbr_table[index].R -
+		  ltc4286_mbr_table[index].B;
+
+	    sensor_val *sval = (sensor_val *)reading;
+	    memset(sval, 0, sizeof(*sval));
+
+	    sval->integer = (int32_t)val;
+	    sval->fraction = (int32_t)(val * 1000) % 1000;
+
+	    return SENSOR_READ_SUCCESS;
+
 	}
-
-	// real value = (1 / M) * raw_value * R - B;
-	val = (1 / M) * ((msg.data[1] << 8) | msg.data[0]) * ltc4286_mbr_table[index].R -
-	      ltc4286_mbr_table[index].B;
-
-	sensor_val *sval = (sensor_val *)reading;
-	memset(sval, 0, sizeof(*sval));
-
-	sval->integer = (int32_t)val;
-	sval->fraction = (int32_t)(val * 1000) % 1000;
-
-	return SENSOR_READ_SUCCESS;
 }
 
 uint8_t ltc4286_init(uint8_t sensor_num)

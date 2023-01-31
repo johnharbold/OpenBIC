@@ -29,7 +29,7 @@ LOG_MODULE_REGISTER(pmic);
 uint8_t *compose_memory_write_read_req(uint8_t smbus_identifier, uint8_t smbus_address,
 				       uint32_t addr_value, uint8_t *write_data, uint8_t write_len)
 {
-	if ((write_len != 0) && (write_data == NULL)) {
+	if ((write_data == NULL) && (write_len != 0)) {
 		LOG_ERR("Input parameter write_data is NULL");
 		return NULL;
 	}
