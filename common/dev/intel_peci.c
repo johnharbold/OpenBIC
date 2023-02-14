@@ -45,7 +45,8 @@ static bool get_power_sku_unit(uint8_t addr)
 	uint8_t readlen = 0x05;
 
 	int ret = 0;
-	uint8_t *readbuf = (uint8_t *)malloc(readlen * sizeof(uint8_t));
+	uint8_t *readbuf = (uint8_t *)malloc(readlen);
+
 	if (!readbuf) {
 		LOG_ERR("Fail to allocate readbuf memory");
 		return false;
@@ -73,11 +74,9 @@ static bool get_power_sku_unit(uint8_t addr)
 
 	is_read_before = 1;
 
-	SAFE_FREE(readbuf);
 	return true;
 
 cleanup:
-	SAFE_FREE(readbuf);
 	return false;
 }
 
@@ -224,7 +223,7 @@ static bool read_cpu_power(uint8_t addr, int *reading)
 	uint32_t pkg_energy, run_time, diff_energy, diff_time;
 	static uint32_t last_pkg_energy = 0, last_run_time = 0;
 
-	uint8_t *readbuf = (uint8_t *)malloc(2 * readlen * sizeof(uint8_t));
+	uint8_t *readbuf = (uint8_t *)malloc(2 * readlen);
 	if (!readbuf) {
 		LOG_ERR("Fail to allocate readbuf memory");
 		return false;
@@ -302,10 +301,12 @@ static bool read_cpu_power(uint8_t addr, int *reading)
 	*reading = ((float)diff_energy / (float)diff_time) * pwr_scale;
 
 	SAFE_FREE(readbuf);
+
 	return true;
 
 cleanup:
 	SAFE_FREE(readbuf);
+
 	return false;
 }
 

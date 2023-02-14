@@ -160,7 +160,7 @@ int peci_read(uint8_t cmd, uint8_t address, uint8_t u8Index, uint16_t u16Param, 
 	rdpkgcfg.addr = address;
 	rdpkgcfg.tx_buffer.len = 0x05;
 	rdpkgcfg.rx_buffer.len = u8ReadLen;
-	rdpkgcfg.tx_buffer.buf = (uint8_t *)malloc(rdpkgcfg.tx_buffer.len * sizeof(uint8_t));
+	rdpkgcfg.tx_buffer.buf = (uint8_t *)malloc(rdpkgcfg.tx_buffer.len);
 	if (rdpkgcfg.tx_buffer.buf == NULL) {
 		LOG_ERR("Could not initialize memory for tx_buffer");
 		return -1;
